@@ -1,0 +1,16 @@
+{
+  "name": "휴가트래커",
+  "short_name": "휴가트래커",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f4f9",
+  "theme_color": "#ff69b4",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

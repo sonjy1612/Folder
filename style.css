@@ -1,0 +1,137 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 1em; /* Reduced padding for mobile */
+}
+
+#calendar-year {
+    text-align: center;
+    font-size: 2.5em; /* Slightly smaller for mobile */
+    color: #1a1a1a;
+    margin-bottom: 0.5em;
+}
+
+#calendar-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly narrower min-width */
+    gap: 1.5em;
+    justify-content: center; /* Center the grid items */
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container itself */
+}
+
+.month-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; /* Center each month within its grid cell */
+}
+
+.month-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+
+.month-wrapper h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.month-reset-btn {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.month-reset-btn:hover {
+    color: #ff69b4;
+}
+
+.month-reset-btn:active {
+    transform: rotate(-90deg);
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the border-radius is respected by children */
+}
+
+.calendar th, .calendar td {
+    text-align: center;
+    padding: 0.5em 0.25em; /* Reduced padding slightly to accommodate fixed height */
+    width: 14.28%; /* 100% / 7 days */
+    height: 3.5em; /* Fixed height to prevent resizing */
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.calendar th {
+    background-color: #e9e9f2;
+    font-weight: 600;
+    color: #555;
+}
+
+.calendar td {
+    border-top: 1px solid #eee;
+    color: #444;
+    cursor: pointer; /* Indicates dates are clickable */
+    transition: background-color 0.2s;
+}
+
+.calendar .weekend {
+    background-color: #fafafa;
+    color: #888;
+}
+
+.calendar .holiday {
+    color: #e74c3c; /* Red for holidays */
+    font-weight: bold;
+}
+
+/* New style for the selected date (vacation) */
+.calendar td.selected {
+    background-color: #e0f2f1; /* 연한 민트색 (빨간색과 대비가 좋음) */
+    color: #00796b; /* 진한 민트색 글자 */
+    font-weight: 900;
+    font-size: 0.85em; /* Slightly larger for readability */
+    line-height: 1.1; /* Adjusted for multi-line */
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 0;
+}
+
+/* Style for sick leave (병가) */
+.calendar td.sick {
+    background-color: #fff3e0; /* 연한 오렌지색 */
+    color: #ef6c00; /* 진한 오렌지색 글자 */
+    font-weight: 900;
+    font-size: 0.85em;
+    line-height: 1.1;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 0;
+}
+
+/* Ensure weekend style is overridden when selected or sick */
+.calendar td.selected.weekend, .calendar td.sick.weekend {
+    background-color: inherit; /* Maintain their specific background */
+    color: inherit;
+}
+
+.calendar td.selected.weekend { background-color: #e0f2f1; color: #00796b; }
+.calendar td.sick.weekend { background-color: #fff3e0; color: #ef6c00; }

@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('vacationDates', JSON.stringify(savedSelections));
     }
 
+    // Updated Limits: Vacation 15, Sick 5 (2026-03-11)
     function refreshAllCellTexts() {
         const selections = Object.entries(savedSelections);
         

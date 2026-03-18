@@ -1,5 +1,5 @@
 
-# 2026 Calendar Application Blueprint
+# 휴가놈 Application Blueprint
 
 ## Overview
 
